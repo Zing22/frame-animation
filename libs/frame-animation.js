@@ -187,7 +187,9 @@
 
     // 绘制下一帧，核心函数？
     frame_ani.prototype.nextFrame = function (timestamp) {
-        ion.sound.play(this.bgm_ion_name);
+        if (this.bgm_ion_name) {
+            ion.sound.play(this.bgm_ion_name);
+        }
         if(this.status === 3) {
             // 提前结束了
             if(isFunc(this.option.onComplete)) {
